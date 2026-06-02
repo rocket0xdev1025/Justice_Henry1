@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUSTICE FOR HENRY NOWAK • $HENRY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Justice narrative fonts: Anton for powerful bold headlines (monumental/impact feel), Inter for clean readable body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #c8102e;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .display-font {
+            font-family: 'Anton', 'Impact', 'Bebas Neue', system_ui, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            text-transform: uppercase;
+        }
+        
+        .narrative {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.65;
+        }
+
+        .justice-red {
+            color: #c8102e;
+        }
+
+        .section-header {
+            font-family: 'Anton', 'Impact', 'Bebas Neue', system_ui, sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.05;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .glass {
+            background: rgba(255,255,255, 0.06);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-link {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #c8102e;
+            transform: translateY(-1px);
+        }
+
+        .step-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        border-color 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border-color: #c8102e;
+        }
+
+        .tweet-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .justice-gradient {
+            background: linear-gradient(to right, #c8102e, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.2);
+        }
+
+        .meme-badge {
+            background: linear-gradient(90deg, #c8102e, #b91c1c);
+            box-shadow: 0 0 15px rgba(200, 16, 46, 0.5);
+        }
+
+        .fact-card {
+            transition: all 0.2s ease;
+        }
+
+        .fact-card:hover {
+            transform: scale(1.02);
+            border-color: #c8102e;
+        }
+
+        .nav-scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .embed-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #27272a;
+        }
+
+        .count-up {
+            font-feature-settings: "ss02";
+        }
+
+        .subtle-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        /* === AWESOME 2-LINE JUSTICE TITLE === */
+        .justice-title {
+            line-height: 0.82;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .justice-line1 {
+            display: block;
+            font-size: clamp(2.6rem, 7.5vw, 4.4rem);
+            letter-spacing: -0.03em;
+            color: #d4d4d8;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+            opacity: 0.92;
+        }
+        .justice-line2 {
+            display: block;
+            font-size: clamp(3.9rem, 12vw, 8rem);
+            letter-spacing: -0.045em;
+            line-height: 0.86;
+            margin-top: -0.15em;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.22);
+            text-shadow: 
+                0 4px 18px rgba(200,16,46,0.45),
+                0 14px 40px rgba(0,0,0,0.7),
+                0 2px 0 rgba(255,255,255,0.08);
+        }
+
+        /* Animated justice gradient */
+        .justice-gradient {
+            background: linear-gradient(92deg, #c8102e, #f87171, #c8102e, #ef4444);
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: justiceGradient 5s ease infinite;
+        }
+        @keyframes justiceGradient {
+            0%,100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* === GLOBAL ANIMATION EFFECTS ON COMPONENTS === */
+        .animate-rise {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: riseIn 0.75s cubic-bezier(0.23, 1.0, 0.32, 1) forwards;
+        }
+        .animate-rise-delay-1 { animation-delay: 80ms; }
+        .animate-rise-delay-2 { animation-delay: 180ms; }
+        .animate-rise-delay-3 { animation-delay: 280ms; }
+        .animate-rise-delay-4 { animation-delay: 380ms; }
+        .animate-rise-delay-5 { animation-delay: 480ms; }
+
+        @keyframes riseIn {
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .animate-fade {
+            opacity: 0;
+            animation: fadeInSoft 0.9s ease forwards;
+        }
+        @keyframes fadeInSoft {
+            to { opacity: 1; }
+        }
+
+        /* Enhanced component cards with lift + subtle scale */
+        .fact-card, .step-card, .embed-container {
+            transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), 
+                        box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                        border-color 0.25s ease;
+        }
+        .fact-card:hover, .step-card:hover {
+            transform: translateY(-10px) scale(1.012);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.28);
+        }
+        .embed-container:hover {
+            transform: translateY(-4px) scale(1.008);
+            box-shadow: 0 15px 30px -8px rgb(0 0 0 / 0.2);
+        }
+
+        /* Hero image subtle lift */
+        .hero-image {
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .hero-image:hover {
+            transform: scale(1.025);
+        }
+
+        /* Awesome button effects: scale + shine sweep */
+        .btn-primary, .btn-secondary {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.23,1,0.32,1), 
+                        box-shadow 0.2s ease;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary:active, .btn-secondary:active {
+            transform: scale(0.985);
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -120%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(
+                115deg,
+                transparent 20%,
+                rgba(255,255,255,0.55) 45%,
+                transparent 70%
+            );
+            transition: left 0.65s ease;
+            pointer-events: none;
+        }
+        .btn-shine:hover::after {
+            left: 280%;
+        }
+
+        /* Mission box + timeline items */
+        .mission-box {
+            transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s ease;
+        }
+        .mission-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.15);
+        }
+
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            border-color: #c8102e;
+            background-color: rgba(63, 63, 70, 0.5);
+        }
+
+        /* Small pulse for badges */
+        .pulse-badge {
+            animation: pulseSoft 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulseSoft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.65; }
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-zinc-950/90 backdrop-blur-xl transition-all">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-2.5">
+                        <img src="assets/images/henry_avatar.jpg" alt="Henry Nowak" 
+                             class="w-9 h-9 rounded-full object-cover ring-2 ring-white/20">
+                        <div class="animate-fade">
+                            <div class="font-bold tracking-tighter text-[15px] display-font leading-none">JUSTICE FOR</div>
+                            <div class="font-bold tracking-tighter text-[15px] display-font leading-none -mt-px text-red-600">HENRY NOWAK</div>
+                            <div class="text-[8px] text-zinc-500 -mt-px">FOREVER 18 • $HENRY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#story" class="nav-link text-zinc-300 hover:text-white">The Story</a>
+                    <a href="#voices" class="nav-link text-zinc-300 hover:text-white">Voices for Justice</a>
+                    <a href="#howtobuy" class="nav-link text-zinc-300 hover:text-white">How to Buy</a>
+                    <a href="#mission" class="nav-link text-zinc-300 hover:text-white">Mission</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-3">
+                    <a href="https://x.com/HenryNowakSol_" target="_blank"
+                       class="flex items-center gap-x-2 px-4 py-2 text-sm font-semibold rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span>Follow @HenryNowakSol_</span>
+                    </a>
+                    <button onclick="copyCA()"
+                            class="btn-shine px-5 py-2 text-sm font-bold rounded-full bg-white text-black hover:bg-zinc-200 active:scale-[0.985] transition-all flex items-center gap-x-2">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>COPY CA</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                        class="md:hidden w-10 h-10 flex items-center justify-center text-xl text-zinc-300 hover:text-white">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-zinc-950">
+            <div class="px-6 py-8 flex flex-col gap-y-5 text-lg font-medium">
+                <a href="#story" class="mobile-link text-zinc-300">The Story</a>
+                <a href="#voices" class="mobile-link text-zinc-300">Voices for Justice</a>
+                <a href="#howtobuy" class="mobile-link text-zinc-300">How to Buy $HENRY</a>
+                <a href="#mission" class="mobile-link text-zinc-300">The Mission</a>
+                
+                <div class="pt-4 flex flex-col gap-y-3 border-t border-white/10">
+                    <a href="https://x.com/HenryNowakSol_" target="_blank"
+                       class="flex items-center justify-center gap-x-2 py-3 rounded-2xl border border-white/20 text-sm font-semibold">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span>FOLLOW ON X</span>
+                    </a>
+                    <button onclick="copyCA(); closeMobileMenu()"
+                            class="btn-shine py-3.5 rounded-2xl bg-white text-black font-bold text-sm flex items-center justify-center gap-x-2 active:bg-zinc-200">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>COPY CONTRACT ADDRESS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="pt-20 relative overflow-hidden border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-24">
+            <div class="grid md:grid-cols-12 gap-x-8 items-center">
+                <!-- Left: Text -->
+                <div class="md:col-span-7 lg:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 px-4 h-8 rounded-full border border-white/20 bg-white/5 mb-6 animate-rise">
+                        <div class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+                        <span class="uppercase tracking-[3px] text-xs font-semibold text-zinc-400">ETHEREUM MEME FOR JUSTICE</span>
+                    </div>
+                    
+                    <!-- AWESOME 2-LINE JUSTICE TITLE -->
+                    <div class="relative">
+                        <h1 class="justice-title display-font font-bold tracking-tighter text-white animate-rise">
+                            <span class="justice-line1">JUSTICE FOR</span>
+                            <span class="justice-line2 justice-gradient">HENRY NOWAK</span>
+                        </h1>
+                        <!-- Awesome accent bar -->
+                        <div class="absolute left-0 -bottom-1 h-[3px] w-16 bg-gradient-to-r from-red-600 to-transparent rounded-full animate-rise animate-rise-delay-1"></div>
+                    </div>
+                    
+                    <div class="mt-6 flex items-baseline gap-x-3 animate-rise animate-rise-delay-1">
+                        <div class="text-5xl md:text-6xl font-semibold tracking-[-3.5px] text-white">$HENRY</div>
+                        <div class="px-4 py-1 rounded-full text-sm font-bold bg-zinc-900 border border-white/20 pulse-badge">FOREVER 18</div>
+                    </div>
+
+                    <p class="mt-6 max-w-lg text-xl text-zinc-400 leading-tight animate-rise animate-rise-delay-2">
+                        18-year-old student. Stabbed five times. Handcuffed while bleeding out. 
+                        <span class="text-white font-medium">"I can't breathe."</span> 
+                        They laughed. He died.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0xcomingsoon"
+                           class="btn-primary btn-shine inline-flex items-center justify-center gap-x-3 px-8 h-14 rounded-2xl bg-[#c8102e] hover:bg-red-700 active:bg-red-800 font-semibold text-lg transition-all">
+                            <span>BUY $HENRY</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        
+                        <a href="#voices"
+                           class="btn-secondary btn-shine inline-flex items-center justify-center gap-x-3 px-8 h-14 rounded-2xl border border-white/30 hover:bg-white/5 font-semibold text-lg transition-all">
+                            <span>HEAR THE OUTRAGE</span>
+                        </a>
+                    </div>
+
+                    <!-- Social + Buy Now buttons -->
+                    <div class="mt-5 flex flex-wrap items-center gap-3">
+                        <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xcomingsoon" target="_blank"
+                           class="btn-primary btn-shine inline-flex items-center justify-center gap-x-2 px-6 h-11 rounded-2xl bg-white text-black hover:bg-zinc-100 font-bold text-sm transition-all">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Chart/span>
+                        </a>
+
+                        <a href="https://x.com/HenryNowakSol_" target="_blank"
+                           class="btn-secondary btn-shine inline-flex items-center justify-center gap-x-2 px-5 h-11 rounded-2xl border border-white/30 hover:bg-white/5 font-semibold text-sm transition-all">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            <span>Twitter / X</span>
+                        </a>
+
+                        <a href="https://t.me/HenryNowakSol_" target="_blank"
+                           class="btn-secondary btn-shine inline-flex items-center justify-center gap-x-2 px-5 h-11 rounded-2xl border border-white/30 hover:bg-white/5 font-semibold text-sm transition-all">
+                            <i class="fa-brands fa-telegram"></i>
+                            <span>Telegram</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-7 flex items-center gap-x-6 text-sm">
+                        <div class="flex -space-x-2">
+                            <img src="assets/images/henry_avatar.jpg" class="w-6 h-6 rounded-full ring-2 ring-zinc-950 object-cover" alt="">
+                            <div class="w-6 h-6 rounded-full bg-zinc-800 ring-2 ring-zinc-950 flex items-center justify-center text-[9px]">🇬🇧</div>
+                            <div class="w-6 h-6 rounded-full bg-zinc-800 ring-2 ring-zinc-950 flex items-center justify-center text-[9px]">🇺🇸</div>
+                        </div>
+                        <div class="text-zinc-400 text-sm">
+                            <span class="font-semibold text-white">87k+</span> voices on X
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Hero Image -->
+                <div class="md:col-span-5 lg:col-span-5 mt-10 md:mt-0">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="assets/images/henry_photo.jpg" 
+                             alt="Henry Nowak — Justice demands the truth. Comparison image highlighting the victim and the killer" 
+                             class="w-full aspect-[4/3.1] object-cover hero-image">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 text-sm">
+                            <div class="font-semibold">Elon Musk: "Release the body camera videos"</div>
+                            <div class="text-zinc-400 text-xs mt-0.5">The world is watching.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ticker bar -->
+        <div class="border-t border-white/10 bg-black/40 py-3 animate-fade">
+            <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-sm">
+                <div class="flex items-center gap-x-8 text-zinc-400">
+                    <div class="flex items-center gap-x-2">
+                        <span class="font-mono text-emerald-400">$0.00048</span>
+                        <span class="text-xs px-1.5 py-px bg-emerald-500/10 text-emerald-400 rounded">LIVE</span>
+                    </div>
+                    <div>MCAP <span class="font-semibold text-white">$480K+</span></div>
+                    <div class="hidden sm:block">LIQUIDITY <span class="font-semibold text-white">$80K+</span></div>
+                </div>
+                <div onclick="copyCA()" class="cursor-pointer flex items-center gap-x-2 text-xs font-mono hover:text-red-400 transition-colors">
+                    <span class="text-zinc-500">CA:</span> 
+                    <span class="font-medium">0x4a3b2c...7f6a5b</span>
+                    <i class="fa-solid fa-copy text-[10px]"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST / KEY FACTS BAR -->
+    <div class="max-w-7xl mx-auto px-6 pt-9 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="fact-card component-card border border-white/10 bg-zinc-900/60 rounded-2xl px-5 py-4 animate-rise animate-rise-delay-1">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">THE VICTIM</div>
+                <div class="font-semibold mt-1">Henry Nowak, 18</div>
+                <div class="text-sm text-zinc-400">Southampton university student • Forever 18</div>
+            </div>
+            <div class="fact-card component-card border border-white/10 bg-zinc-900/60 rounded-2xl px-5 py-4 animate-rise animate-rise-delay-2">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">THE ATTACK</div>
+                <div class="font-semibold mt-1">Stabbed 5 times</div>
+                <div class="text-sm text-zinc-400">With a 21cm kirpan (ceremonial blade)</div>
+            </div>
+            <div class="fact-card component-card border border-white/10 bg-zinc-900/60 rounded-2xl px-5 py-4 animate-rise animate-rise-delay-3">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">THE LIE</div>
+                <div class="font-semibold mt-1">"I can't breathe" — 9 times</div>
+                <div class="text-sm text-zinc-400">Police laughed, handcuffed him instead of helping</div>
+            </div>
+            <div class="fact-card component-card border border-white/10 bg-zinc-900/60 rounded-2xl px-5 py-4 animate-rise animate-rise-delay-4">
+                <div class="text-xs uppercase tracking-widest text-zinc-500">THE RESULT</div>
+                <div class="font-semibold mt-1">Killer: Life, min 21 years</div>
+                <div class="text-sm text-zinc-400">Police response under IOPC investigation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- THE STORY -->
+    <div id="story" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="flex items-end justify-between mb-9">
+            <div>
+                <div class="uppercase text-red-600 tracking-[4px] text-sm font-semibold mb-2">WHAT HAPPENED</div>
+                <h2 class="section-header tracking-[-2.5px]">The night Henry was failed by the system.</h2>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-x-8 gap-y-10">
+            <!-- Narrative -->
+            <div class="lg:col-span-7">
+                <div class="prose prose-invert narrative max-w-none text-[15.2px] leading-relaxed text-zinc-300 space-y-5">
+                    <p>On a cold winter evening in Southampton, 18-year-old Henry Nowak was stabbed five times by Vickrum Digwa with a 21cm kirpan — a blade carried as part of his Sikh faith.</p>
+                    
+                    <p>When police arrived, Digwa lied and claimed he was the victim, saying Henry had "racially abused" him. Officers believed the lie.</p>
+                    
+                    <p class="font-medium text-white">Henry lay bleeding on the ground. He told officers repeatedly: "I've been stabbed." He said nine times: "I can't breathe."</p>
+                    
+                    <p>One officer responded: <span class="italic">"I don't think you have mate."</span> Henry was handcuffed behind his back while he bled out. He drowned in his own blood.</p>
+                    
+                    <p>The killer was given dignity. Henry was not. Digwa was not handcuffed. Officers even took him to choose food while in custody.</p>
+                </div>
+
+                <div class="mt-7 p-5 border-l-4 border-red-600 bg-zinc-900/70 text-sm">
+                    <div class="font-semibold mb-1">Henry's father's words at sentencing:</div>
+                    <div class="italic text-zinc-300">"He should be on the pitch playing and laughing with his friends. Henry should still be here. The first Christmas without him I slept in his room."</div>
+                </div>
+            </div>
+
+            <!-- Visual + Contrast -->
+            <div class="lg:col-span-5 space-y-4">
+                <div class="rounded-2xl overflow-hidden border border-white/10">
+                    <img src="assets/images/father_statement.png" alt="Henry Nowak with his mother" class="w-full">
+                    <div class="px-5 py-3 text-xs bg-zinc-900 flex items-center justify-between">
+                        <div>Henry with his mother — the life that was stolen</div>
+                    </div>
+                </div>
+                
+                <div class="rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 p-1">
+                    <img src="assets/images/contrast_bored.png" alt="Vickrum Digwa — killer showed no remorse" class="w-full rounded-xl">
+                    <div class="px-4 pt-3 pb-2 text-xs flex justify-between items-center">
+                        <div>
+                            <span class="font-semibold text-red-400">The killer</span> looked bored and uninterested while Henry's family sobbed delivering victim impact statements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="mt-12">
+            <div class="uppercase text-xs tracking-[2px] text-zinc-500 mb-4 px-1">THE INJUSTICE TIMELINE</div>
+            <div class="space-y-px">
+                <div class="timeline-item flex gap-4 items-start p-4 rounded-2xl bg-zinc-900/50 border border-white/10 animate-rise animate-rise-delay-1">
+                    <div class="w-7 h-7 rounded-full bg-zinc-800 flex-shrink-0 flex items-center justify-center text-xs font-mono font-bold mt-0.5">01</div>
+                    <div class="flex-1"><span class="font-semibold">Stabbing:</span> Henry attacked with ceremonial blade. He pleads for help.</div>
+                </div>
+                <div class="timeline-item flex gap-4 items-start p-4 rounded-2xl bg-zinc-900/50 border border-white/10 animate-rise animate-rise-delay-2">
+                    <div class="w-7 h-7 rounded-full bg-zinc-800 flex-shrink-0 flex items-center justify-center text-xs font-mono font-bold mt-0.5">02</div>
+                    <div class="flex-1"><span class="font-semibold">The Lie:</span> Killer claims racial abuse. Police believe the aggressor over the dying victim.</div>
+                </div>
+                <div class="timeline-item flex gap-4 items-start p-4 rounded-2xl bg-zinc-900/50 border border-white/10 animate-rise animate-rise-delay-3">
+                    <div class="w-7 h-7 rounded-full bg-zinc-800 flex-shrink-0 flex items-center justify-center text-xs font-mono font-bold mt-0.5">03</div>
+                    <div class="flex-1"><span class="font-semibold">Handcuffed &amp; Ignored:</span> Henry tells officers he can't breathe. They laugh. They cuff him. He dies.</div>
+                </div>
+                <div class="timeline-item flex gap-4 items-start p-4 rounded-2xl bg-zinc-900/50 border border-white/10 animate-rise animate-rise-delay-4">
+                    <div class="w-7 h-7 rounded-full bg-zinc-800 flex-shrink-0 flex items-center justify-center text-xs font-mono font-bold mt-0.5">04</div>
+                    <div class="flex-1"><span class="font-semibold">Sentencing:</span> Killer jailed for life (min. 21 years). IOPC investigates police. Bodycam footage still withheld.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ELON & STARTER CALLS -->
+    <div class="bg-zinc-900 border-y border-white/10 py-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div>
+                    <div class="font-semibold">Elon Musk demanded the bodycam footage be released.</div>
+                    <div class="text-sm text-zinc-400">The public deserves to see what happened that night.</div>
+                </div>
+                <a href="https://x.com/visegrad24/status/2061373766106509526" target="_blank"
+                   class="text-sm font-semibold px-6 py-2.5 rounded-2xl border border-white/20 hover:bg-white/5 flex-shrink-0 flex items-center gap-x-2">
+                    SEE THE POST <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- VOICES / EMBEDDED POSTS -->
+    <div id="voices" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <div class="uppercase text-red-600 text-xs tracking-[3.5px] font-semibold mb-2">THE WORLD IS WATCHING</div>
+                <h2 class="section-header tracking-[-2.2px]">Voices demanding justice.</h2>
+            </div>
+            <a href="https://x.com/HenryNowakSol_" target="_blank" class="hidden md:flex items-center text-sm font-medium text-red-400 hover:text-red-300">
+                SEE MORE ON X <i class="ml-1.5 fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Embed 1: Ben Habib -->
+            <div class="embed-container component-card bg-zinc-900 animate-rise animate-rise-delay-1">
+                <blockquote class="twitter-tweet" data-theme="dark" data-lang="en">
+                    <a href="https://twitter.com/BackBrexitBen/status/2060698593883771036"></a>
+                </blockquote>
+            </div>
+
+            <!-- Embed 2: Visegrad24 -->
+            <div class="embed-container component-card bg-zinc-900 animate-rise animate-rise-delay-2">
+                <blockquote class="twitter-tweet" data-theme="dark" data-lang="en">
+                    <a href="https://twitter.com/visegrad24/status/2061373766106509526"></a>
+                </blockquote>
+            </div>
+
+            <!-- Embed 3: VoxPopuli -->
+            <div class="embed-container component-card bg-zinc-900 animate-rise animate-rise-delay-3">
+                <blockquote class="twitter-tweet" data-theme="dark" data-lang="en">
+                    <a href="https://twitter.com/vpopulimedia/status/2061440697228538228"></a>
+                </blockquote>
+            </div>
+
+            <!-- Embed 4: Keir Starmer (backlash) -->
+            <div class="embed-container component-card bg-zinc-900 animate-rise animate-rise-delay-4">
+                <blockquote class="twitter-tweet" data-theme="dark" data-lang="en">
+                    <a href="https://twitter.com/Keir_Starmer/status/2061506435859845244"></a>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center text-xs text-zinc-500">
+            These posts represent millions of views and the growing demand for transparency and accountability. <span class="hidden sm:inline">Official embeds — live from X.</span>
+        </div>
+    </div>
+
+    <!-- 4 STEPS TO BUY -->
+    <div id="howtobuy" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/10 bg-zinc-900/30">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[3px] text-xs text-red-600 font-semibold mb-2">SUPPORT THE MOVEMENT</div>
+            <h2 class="section-header tracking-[-2px]">4 steps to buy $HENRY with Ethereum.</h2>
+            <p class="mt-3 text-zinc-400">The $HENRY token keeps the story alive. Community-driven. High risk, high conviction.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Step 1 -->
+            <div class="step-card component-card group border border-white/10 hover:border-red-600/60 bg-zinc-950 rounded-3xl p-6 animate-rise animate-rise-delay-1">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-2xl bg-red-600/10 flex items-center justify-center text-red-500 font-mono font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">1</div>
+                    <div class="font-semibold text-xl tracking-tight">Install MetaMask</div>
+                </div>
+                <div class="mt-5 text-sm text-zinc-400 leading-relaxed">
+                    Download the official MetaMask wallet extension for Chrome, Firefox, or Brave (or the mobile app). 
+                    Create a new wallet or import an existing one. Never share your seed phrase.
+                </div>
+                <div class="mt-4 text-xs px-3 py-1.5 bg-zinc-900 rounded-xl inline-block text-zinc-400">metamask.io — official only</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card component-card group border border-white/10 hover:border-red-600/60 bg-zinc-950 rounded-3xl p-6 animate-rise animate-rise-delay-2">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-2xl bg-red-600/10 flex items-center justify-center text-red-500 font-mono font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">2</div>
+                    <div class="font-semibold text-xl tracking-tight">Buy &amp; Send ETH to Wallet</div>
+                </div>
+                <div class="mt-5 text-sm text-zinc-400 leading-relaxed">
+                    Purchase ETH on Coinbase, Binance, Kraken, or any CEX. Withdraw/transfer the ETH directly to your MetaMask wallet address (copy it from MetaMask).
+                </div>
+                <div class="mt-4 text-xs px-3 py-1.5 bg-zinc-900 rounded-xl inline-block text-zinc-400">Use low network fees when possible</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card component-card group border border-white/10 hover:border-red-600/60 bg-zinc-950 rounded-3xl p-6 animate-rise animate-rise-delay-3">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-2xl bg-red-600/10 flex items-center justify-center text-red-500 font-mono font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">3</div>
+                    <div class="font-semibold text-xl tracking-tight">Swap ETH for $HENRY on Uniswap</div>
+                </div>
+                <div class="mt-5 text-sm text-zinc-400 leading-relaxed">
+                    Go to <a href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0xcomingsoon" target="_blank" class="underline hover:text-red-400">app.uniswap.org/swap</a>, connect your MetaMask wallet. 
+                    Select ETH → paste the $HENRY contract address as the output token. Set slippage (start with 5–10% for new memes) and confirm the swap.
+                </div>
+                <div class="mt-4 flex items-center gap-x-1.5 text-xs">
+                    <div class="px-3 py-1.5 bg-zinc-900 rounded-xl">Uniswap — Ethereum DEX</div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card component-card group border border-white/10 hover:border-red-600/60 bg-zinc-950 rounded-3xl p-6 animate-rise animate-rise-delay-4">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 flex-shrink-0 rounded-2xl bg-red-600/10 flex items-center justify-center text-red-500 font-mono font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">4</div>
+                    <div class="font-semibold text-xl tracking-tight">Add $HENRY to Wallet &amp; HODL</div>
+                </div>
+                <div class="mt-5 text-sm text-zinc-400 leading-relaxed">
+                    After the swap succeeds in MetaMask, click "Add Token" (or import token) and paste the contract address below. 
+                    Your $HENRY balance will now display. Tell the world.
+                </div>
+                
+                <div class="mt-5">
+                    <button onclick="copyCA()" 
+                            class="w-full flex items-center justify-center gap-x-2 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-white/15 text-sm font-mono py-3 border border-white/10 transition-colors">
+                        <span>0x4a3b2c...f6a5b</span>
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick buy buttons -->
+        <div class="mt-8 flex flex-wrap gap-3 justify-center">
+            <a href="https://app.uniswap.org" target="_blank"
+               class="flex-1 md:flex-none inline-flex items-center justify-center gap-3 px-7 h-12 rounded-2xl bg-white text-black hover:bg-zinc-100 font-semibold text-sm active:scale-[0.985]">
+                <i class="fa-solid fa-rocket"></i>
+                <span>OPEN UNISWAP</span>
+            </a>
+            <a href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0xcomingsoon" target="_blank"
+               class="flex-1 md:flex-none inline-flex items-center justify-center gap-3 px-7 h-12 rounded-2xl border border-white/30 hover:bg-white/5 font-semibold text-sm">
+                <span>SWAP ETH → $HENRY</span>
+            </a>
+            <a href="https://dexscreener.com/search?q=HENRY" target="_blank"
+               class="flex-1 md:flex-none inline-flex items-center justify-center gap-3 px-7 h-12 rounded-2xl border border-white/30 hover:bg-white/5 font-semibold text-sm">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>DEXSCREENER CHART</span>
+            </a>
+        </div>
+
+        <div class="mt-6">
+            <div onclick="copyCA()" class="mx-auto max-w-md cursor-pointer group flex items-center justify-between gap-3 bg-zinc-950 border border-white/10 hover:border-red-600/70 transition-colors rounded-2xl px-5 py-3 text-sm">
+                <div>
+                    <div class="text-[10px] uppercase tracking-widest text-zinc-500">OFFICIAL CONTRACT (VERIFY)</div>
+                    <div class="font-mono text-xs md:text-sm text-white/90 group-active:text-red-400 transition-colors">0x4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b</div>
+                </div>
+                <div class="text-red-500"><i class="fa-solid fa-copy text-lg"></i></div>
+            </div>
+            <div class="mt-4 text-center text-[10px] text-zinc-500 max-w-md mx-auto">
+                Always verify the contract address. This is a high-risk meme coin. Only invest what you can afford to lose. DYOR.
+            </div>
+        </div>
+    </div>
+
+    <!-- MISSION / CALL TO ACTION -->
+    <div id="mission" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-12 gap-x-8 items-center">
+            <div class="lg:col-span-7">
+                <div class="uppercase text-xs tracking-[3px] text-red-600 font-semibold">THE MOVEMENT</div>
+                <h2 class="section-header mt-2 tracking-[-1.5px] animate-rise">Keep the pressure on.<br>Never let them forget Henry.</h2>
+                
+                <div class="mt-6 max-w-prose text-zinc-300 animate-rise animate-rise-delay-1">
+                    $HENRY exists to ensure Henry's story is never buried. The bodycam footage must be released. 
+                    The officers who failed him must be held accountable. Two-tier policing must end.
+                </div>
+
+                <div class="mt-7 flex flex-wrap gap-3">
+                    <button onclick="pledgeSupport()" 
+                            class="btn-primary btn-shine px-8 h-12 font-semibold rounded-2xl bg-red-600 hover:bg-red-700 active:bg-red-800 flex items-center gap-x-2 text-sm">
+                        <i class="fa-solid fa-handshake"></i> 
+                        <span>I STAND WITH HENRY'S FAMILY</span>
+                    </button>
+                    
+                    <button onclick="shareOnX()" 
+                            class="btn-secondary btn-shine px-8 h-12 font-semibold rounded-2xl border border-white/30 hover:bg-white/5 flex items-center gap-x-2 text-sm">
+                        <i class="fa-brands fa-x-twitter"></i> 
+                        <span>SHARE #JusticeForHenryNowak</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 mt-9 lg:mt-0">
+                <div class="mission-box component-card rounded-3xl border border-white/10 bg-zinc-900 p-7 animate-rise animate-rise-delay-2">
+                    <div class="text-xs uppercase tracking-widest text-zinc-500 mb-3">KEY DEMANDS</div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-red-500 mt-1"></i> <span>Immediate release of all police bodycam footage</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-red-500 mt-1"></i> <span>Full independent investigation into police conduct</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-red-500 mt-1"></i> <span>Reform of religious knife exemptions &amp; two-tier policing</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-red-500 mt-1"></i> <span>Support for the Nowak family — justice &amp; dignity</span></li>
+                    </ul>
+                    <div class="text-[11px] text-zinc-500 mt-6">The token community has reportedly directed significant on-chain donations to the family.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="border-t border-white/10 bg-black py-14">
+        <div class="max-w-3xl mx-auto text-center px-6">
+            <div class="mx-auto w-11 h-px bg-white/30 mb-6"></div>
+            <div class="text-4xl md:text-5xl tracking-[-1.6px] font-semibold display-font animate-fade">Henry should still be here.</div>
+            <p class="mt-4 text-xl text-zinc-400 animate-rise animate-rise-delay-1">Buy $HENRY. Amplify the truth. Demand the footage.</p>
+            
+            <div class="mt-8 flex justify-center gap-x-4">
+                <button onclick="copyCA()" 
+                        class="btn-secondary btn-shine px-9 py-3.5 text-sm font-bold rounded-3xl border border-white/20 hover:bg-white/5 flex items-center gap-x-2 transition">
+                    <i class="fa-solid fa-copy"></i> 
+                    <span>COPY CONTRACT</span>
+                </button>
+                <a href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0xcomingsoon" class="btn-primary btn-shine px-9 py-3.5 text-sm font-bold rounded-3xl bg-red-600 hover:bg-red-700 flex items-center gap-x-2 transition">
+                    BUY $HENRY NOW
+                </a>
+            </div>
+            
+            <div class="mt-8 text-xs text-zinc-500">Not financial advice. Cryptocurrency is volatile. The cause is real.</div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-white/10 text-xs text-zinc-400">
+        <div class="max-w-7xl mx-auto px-6 py-9 flex flex-col md:flex-row md:items-center justify-between gap-y-4">
+            <div>© JUSTICE FOR HENRY NOWAK — $HENRY on Ethereum. Made for the movement.</div>
+            <div class="flex items-center gap-x-5">
+                <a href="https://x.com/HenryNowakSol_" target="_blank" class="hover:text-white flex items-center gap-x-1"><i class="fa-brands fa-x-twitter"></i> <span>X</span></a>
+                <a href="https://t.me/HenryNowakSol_" target="_blank" class="hover:text-white flex items-center gap-x-1"><i class="fa-brands fa-telegram"></i> <span>Telegram</span></a>
+                <a href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0xcomingsoon" target="_blank" class="hover:text-white">Uniswap</a>
+                <a href="https://dexscreener.com/ethereum/0xcomingsoon" target="_blank" class="hover:text-white">DexScreener</a>
+                <span onclick="copyCA()" class="cursor-pointer hover:text-white">Contract Address</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900 border border-white/20 text-sm px-5 py-2.5 rounded-3xl shadow-xl flex items-center gap-x-2">
+        <i class="fa-solid fa-check text-emerald-400"></i> 
+        <span id="toast-text">Copied to clipboard</span>
+    </div>
+
+    <!-- Twitter Embed Script -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            document.documentElement.style.setProperty('--accent', '#c8102e');
+            
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'display': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            };
+        }
+
+        // Navbar scroll effect
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('nav-scrolled', 'shadow-xl');
+                } else {
+                    navbar.classList.remove('nav-scrolled', 'shadow-xl');
+                }
+            });
+        }
+
+        // Mobile menu
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    btn.innerHTML = '<i class="fa-solid fa-times"></i>';
+                } else {
+                    menu.classList.add('hidden');
+                    btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            });
+
+            // Close when clicking links
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                });
+            });
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            menu.classList.add('hidden');
+            btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+
+        // Copy contract address
+        const CONTRACT_ADDRESS = "0x4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b";
+
+        function copyCA() {
+            navigator.clipboard.writeText(CONTRACT_ADDRESS).then(() => {
+                showToast("Contract address copied!");
+                
+                // Also update any short display if present
+                const shortEl = document.getElementById('ca-display-short');
+                if (shortEl) {
+                    const orig = shortEl.textContent;
+                    shortEl.textContent = "COPIED!";
+                    setTimeout(() => {
+                        if (shortEl) shortEl.textContent = orig;
+                    }, 1400);
+                }
+            }).catch(() => {
+                // Fallback
+                prompt("Copy this contract address:", CONTRACT_ADDRESS);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const text = document.getElementById('toast-text');
+            text.textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.remove('flex');
+                toast.classList.add('hidden');
+            }, 2400);
+        }
+
+        // Pledge support (fun interactive)
+        let pledgeCount = 12487;
+
+        function pledgeSupport() {
+            pledgeCount++;
+            
+            const btns = document.querySelectorAll('button');
+            btns.forEach(b => {
+                if (b.textContent.includes('STAND WITH')) {
+                    const originalText = b.innerHTML;
+                    b.innerHTML = `<i class="fa-solid fa-check"></i> <span>THANK YOU — YOU ARE #${pledgeCount.toLocaleString()}</span>`;
+                    b.disabled = true;
+                    b.classList.add('!bg-emerald-600', '!hover:bg-emerald-600');
+                    
+                    setTimeout(() => {
+                        if (b) {
+                            b.innerHTML = originalText;
+                            b.disabled = false;
+                            b.classList.remove('!bg-emerald-600', '!hover:bg-emerald-600');
+                        }
+                    }, 2400);
+                }
+            });
+
+            showToast(`Thank you. ${pledgeCount.toLocaleString()} people now stand with Henry.`);
+
+            // Simple confetti
+            launchConfetti();
+        }
+
+        function launchConfetti() {
+            const colors = ['#c8102e', '#fff', '#64748b'];
+            for (let i = 0; i < 42; i++) {
+                setTimeout(() => {
+                    const conf = document.createElement('div');
+                    conf.style.position = 'fixed';
+                    conf.style.zIndex = '99999';
+                    conf.style.left = Math.random() * 100 + 'vw';
+                    conf.style.top = '-10px';
+                    conf.style.width = '7px';
+                    conf.style.height = '7px';
+                    conf.style.borderRadius = Math.random() > .6 ? '50%' : '2px';
+                    conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    conf.style.opacity = Math.random() + 0.4;
+                    conf.style.pointerEvents = 'none';
+                    document.body.appendChild(conf);
+
+                    const duration = 1600 + Math.random() * 1600;
+                    const angle = Math.random() * 70 + 55;
+                    
+                    conf.animate([
+                        { transform: `translateY(0) rotate(0deg)` },
+                        { transform: `translateY(${window.innerHeight + 120}px) rotate(${angle * 3}deg)` }
+                    ], {
+                        duration: duration,
+                        easing: 'cubic-bezier(.22,.68,.3,.99)'
+                    }).onfinish = () => conf.remove();
+                }, i * 1.4);
+            }
+        }
+
+        // Share on X helper
+        function shareOnX() {
+            const text = encodeURIComponent("Justice for Henry Nowak. He was 18. He was stabbed, lied about, laughed at and handcuffed while bleeding to death. The bodycam footage must be released. $HENRY\n\nhttps://x.com/HenryNowakSol_");
+            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+        }
+
+        // Fake live price ticker (fun, not real)
+        function initPriceTicker() {
+            const priceEl = document.querySelector('.font-mono.text-emerald-400');
+            if (!priceEl) return;
+
+            setInterval(() => {
+                let text = priceEl.textContent.trim();
+                if (!text.startsWith('$')) return;
+                let current = parseFloat(text.replace('$', ''));
+                if (isNaN(current)) return;
+                const variation = (Math.random() - 0.48) * 0.000018;
+                let next = Math.max(0.00029, Math.min(0.00079, current + variation));
+                priceEl.textContent = '$' + next.toFixed(6);
+            }, 7200);
+        }
+
+        // Keyboard support: press "c" to copy CA
+        function initKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key.toLowerCase() === 'c' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    copyCA();
+                }
+                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    const how = document.getElementById('howtobuy');
+                    how.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+
+            // Easter egg hint
+            console.log('%c[Justice] Press "c" anywhere to copy $HENRY contract address.', 'color:#555');
+        }
+
+        // Smooth scroll for all anchor links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        // Initialize everything
+        function init() {
+            initTailwind();
+            initNavbar();
+            initMobileMenu();
+            initPriceTicker();
+            initKeyboardShortcuts();
+            initSmoothScroll();
+            initScrollAnimations();
+
+            // Random subtle boost to pledge count occasionally (client only)
+            setTimeout(() => {
+                pledgeCount += Math.floor(Math.random() * 4) + 2;
+            }, 34000);
+
+            // Preload hint
+            console.log('%c[JusticeForHenry] Ethereum meme site ready. $HENRY — 0x4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b', 'font-size:9px;color:#3f3f46');
+            
+            // Optional: show toast hint once after 18 seconds (subtle)
+            setTimeout(() => {
+                // Only show if user hasn't interacted much
+                if (!document.getElementById('toast').classList.contains('flex')) {
+                    // do nothing — avoid annoying
+                }
+            }, 18000);
+        }
+
+        // Scroll-triggered rise animations for components (awesome entrance when scrolled into view)
+        function initScrollAnimations() {
+            const animatedEls = document.querySelectorAll('.animate-rise, .animate-fade, .mission-box, .timeline-item, .component-card');
+            
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: just make visible
+                animatedEls.forEach(el => el.style.opacity = '1');
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        // Trigger rise if it has the class
+                        if (el.classList.contains('animate-rise') || el.classList.contains('animate-fade')) {
+                            el.style.animationPlayState = 'running';
+                        } else {
+                            el.classList.add('animate-rise', 'in-view');
+                        }
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+            animatedEls.forEach(el => {
+                // Pause initial animations for below-fold elements so they trigger on scroll
+                if (el.getBoundingClientRect().top > window.innerHeight * 0.6) {
+                    el.style.animationPlayState = 'paused';
+                }
+                observer.observe(el);
+            });
+        }
+
+        // Boot
+        window.onload = init;
+
+        // Expose a couple helpers for power users
+        window.copyHENRY = copyCA;
+        window.pledge = () => pledgeSupport();
+    </script>
+</body>
+</html>
